@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import Navbar from "./components/Navbar";
+import Container from "./components/Container";
+import "./App.css";
+import Home from "./components/Text/Home";
+import Projects from "./components/Text/Projects";
+import Resume from "./components/Text/Resume";
+import Skills from "./components/Text/Skills";
+import Particles from "react-particles-js";
 
 function App() {
+  const particlesOptions = {
+    particles: {
+      number: {
+        value: 30,
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+    },
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Particles className="particles" params={particlesOptions} />
+      <Navbar />
+      <Container Text={Home} />
+      <Container Text={Projects} />
+      <Container Text={Resume} />
+      <Container Text={Skills} />
     </div>
   );
 }
